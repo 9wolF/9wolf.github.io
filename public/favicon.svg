@@ -13,11 +13,11 @@
     FN
   </text>
   <style>
-    .bg { fill: #143328; }
+    .bg { fill: #1e2b26; }
     .fg { fill: #aecebe; }
     @media (prefers-color-scheme: dark) {
       .bg { fill: #aecebe; }
-      .fg { fill: #0d1613; }
+      .fg { fill: #121514; }
     }
   </style>
 </svg>

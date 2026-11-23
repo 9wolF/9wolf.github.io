@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import portraitImage from '../assets/florian.jpg';
 import { projects, siteConfig, skillGroups } from '../data/portfolio';
 ---
 
@@ -9,38 +11,62 @@ import { projects, siteConfig, skillGroups } from '../data/portfolio';
   description={`${siteConfig.name} — ${siteConfig.role}. ${siteConfig.headline}`}
 >
   <!-- Hero -->
-  <section class="py-20 sm:py-28">
-    <p class="font-mono text-xs font-medium uppercase tracking-widest text-accent">
-      {siteConfig.role}
-    </p>
-
-    <h1 class="mt-4 max-w-3xl text-4xl font-bold tracking-tight text-ink sm:text-5xl">
-      Hi, I'm{' '}
-      <span class="bg-gradient-to-r from-grad-from to-grad-to bg-clip-text text-transparent">{siteConfig.name}</span>.
-      <span class="mt-2 block text-ink-muted">
-        {siteConfig.headline}
+  <section class="grid items-center gap-12 py-16 sm:py-24 md:grid-cols-[minmax(0,1fr)_auto] md:gap-16">
+    <div>
+      <span
+        class="inline-flex items-center rounded-full border border-accent-border bg-accent-soft px-3 py-1 font-mono text-xs font-medium tracking-wide text-accent"
+      >
+        {siteConfig.role}
       </span>
-    </h1>
 
-    <p class="mt-6 max-w-2xl text-base leading-relaxed text-ink-muted sm:text-lg">
-      {siteConfig.bio}
-    </p>
+      <h1 class="mt-5 max-w-2xl text-4xl font-bold tracking-tight text-ink sm:text-5xl">
+        Hi, I'm{' '}
+        <span class="bg-gradient-to-r from-grad-from to-grad-to bg-clip-text text-transparent">{siteConfig.name}</span>.
+        <span class="mt-2 block text-ink-muted">
+          {siteConfig.headline}
+        </span>
+      </h1>
 
-    <div class="mt-8 flex flex-wrap items-center gap-4">
-      <a
-        href="#projects"
-        class="inline-flex items-center justify-center rounded-lg bg-btn-primary px-5 py-2.5 text-sm font-medium text-btn-primary-text transition-colors hover:bg-btn-primary-hover"
+      <p class="mt-6 max-w-xl text-base leading-relaxed text-ink-muted sm:text-lg">
+        {siteConfig.bio}
+      </p>
+
+      <div class="mt-8 flex flex-wrap items-center gap-4">
+        <a
+          href="#projects"
+          class="inline-flex items-center justify-center rounded-lg bg-btn-primary px-5 py-2.5 text-sm font-medium text-btn-primary-text transition-colors hover:bg-btn-primary-hover"
+        >
+          Explore Projects
+        </a>
+        <a
+          href={siteConfig.githubUrl}
+          target="_blank"
+          rel="noreferrer"
+          class="inline-flex items-center justify-center rounded-lg border border-border-card bg-surface px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-surface-subtle"
+        >
+          GitHub
+        </a>
+      </div>
+    </div>
+
+    <div class="relative mx-auto w-64 shrink-0 sm:w-72 md:mx-0 md:w-80">
+      <div
+        aria-hidden="true"
+        class="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl bg-sage/80 dark:bg-sage/20"
+      ></div>
+      <div
+        class="relative overflow-hidden rounded-2xl border border-border-card bg-surface shadow-md"
       >
-        Explore Projects
-      </a>
-      <a
-        href={siteConfig.githubUrl}
-        target="_blank"
-        rel="noreferrer"
-        class="inline-flex items-center justify-center rounded-lg border border-border-card bg-surface px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-surface-subtle"
-      >
-        GitHub
-      </a>
+        <Image
+          src={portraitImage}
+          alt="Florian Neunteufel with Mount Fuji in the background"
+          widths={[320, 640, 800]}
+          sizes="(max-width: 640px) 256px, (max-width: 768px) 288px, 320px"
+          loading="eager"
+          fetchpriority="high"
+          class="aspect-[4/5] w-full object-cover object-[50%_26%]"
+        />
+      </div>
     </div>
   </section>
 
@@ -56,7 +82,7 @@ import { projects, siteConfig, skillGroups } from '../data/portfolio';
       <p class="leading-relaxed">
         All starter text, links, tools, and project cards live in{' '}
         <code
-          class="rounded border border-border-card/60 bg-surface px-1.5 py-0.5 font-mono text-xs text-ink"
+          class="rounded border border-border-card/80 bg-surface px-1.5 py-0.5 font-mono text-xs text-ink"
         >
           src/data/portfolio.ts
         </code>{' '}
@@ -106,7 +132,9 @@ import { projects, siteConfig, skillGroups } from '../data/portfolio';
 
   <!-- Connect -->
   <section id="connect" class="scroll-mt-20 border-t border-border py-16">
-    <div class="rounded-2xl border border-border-card bg-surface p-8 shadow-xs sm:p-10">
+    <div
+      class="rounded-2xl border border-border-card border-l-4 border-l-sage bg-surface p-8 shadow-xs sm:p-10"
+    >
       <h2 class="text-2xl font-bold tracking-tight text-ink">Say Hello</h2>
       <p class="mt-3 max-w-xl text-ink-muted">
         Always happy to connect, chat about software, or hear feedback on any of my projects.
@@ -122,7 +150,7 @@ import { projects, siteConfig, skillGroups } from '../data/portfolio';
           href={siteConfig.githubUrl}
           target="_blank"
           rel="noreferrer"
-          class="inline-flex items-center justify-center rounded-lg border border-border-card bg-surface-subtle px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-canvas/50"
+          class="inline-flex items-center justify-center rounded-lg border border-border-card bg-surface-subtle px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-canvas"
         >
           Find me on GitHub
         </a>
