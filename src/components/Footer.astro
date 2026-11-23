@@ -1,0 +1,28 @@
+---
+import { siteConfig, socialLinks } from '../data/portfolio';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-20 border-t border-slate-200 dark:border-slate-800">
+  <div
+    class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 py-8 text-sm text-slate-500 sm:flex-row dark:text-slate-400"
+  >
+    <p>&copy; {year} {siteConfig.brand}. Built with Astro &amp; Tailwind CSS.</p>
+
+    <div class="flex items-center gap-5">
+      {
+        socialLinks.map((link) => (
+          <a
+            href={link.href}
+            target={link.href.startsWith('http') ? '_blank' : undefined}
+            rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
+            class="transition-colors hover:text-slate-900 dark:hover:text-slate-100"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</footer>

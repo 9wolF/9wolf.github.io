@@ -1,0 +1,69 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'Personal developer portfolio built with Astro and Tailwind CSS.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+
+    <!-- Prevent dark/light mode flicker before first paint -->
+    <script is:inline>
+      (() => {
+        const getPreferredTheme = () => {
+          try {
+            const stored = localStorage.getItem('theme');
+            if (stored === 'dark' || stored === 'light') return stored;
+          } catch {}
+          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        };
+
+        const applyTheme = () => {
+          const isDark = getPreferredTheme() === 'dark';
+          document.documentElement.classList.toggle('dark', isDark);
+        };
+
+        applyTheme();
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+          try {
+            if (!localStorage.getItem('theme')) {
+              document.documentElement.classList.toggle('dark', e.matches);
+            }
+          } catch {}
+        });
+
+        document.addEventListener('astro:after-swap', applyTheme);
+      })();
+    </script>
+  </head>
+  <body class="flex min-h-screen flex-col transition-colors duration-200">
+    <Header />
+    <main class="mx-auto w-full max-w-5xl flex-1 px-6">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
