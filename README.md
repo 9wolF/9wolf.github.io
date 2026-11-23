@@ -1,4 +1,4 @@
-# 9teufel.github.io
+# 9wolf.github.io
 
 Personal portfolio built with **Astro**, **Tailwind CSS v4**, and **TypeScript**, featuring flicker-free dark/light mode and automated deployment to GitHub Pages.
 
@@ -38,4 +38,4 @@ Update your name, bio, links, skills, and featured projects in `src/data/portfol
 1. Push your changes to the `main` branch.
 2. In your GitHub repository, open **Settings → Pages**.
 3. Under **Build and deployment → Source**, select **GitHub Actions**.
-4. Every push to `main` will automatically build and publish your site to `https://9teufel.github.io`.
+4. Every push to `main` will automatically build and publish your site to `https://9wolf.github.io`.
