@@ -17,12 +17,11 @@ export interface SocialLink {
 }
 
 export const siteConfig = {
-  brand: '9wolF',
-  name: 'Your Name',
+  brand: 'Florian Neunteufel',
+  name: 'Florian Neunteufel',
   role: 'Software Developer',
-  headline: 'Building fast, clean, and reliable software for the web.',
-  bio: 'Replace this intro with a short summary of what you build, what technologies you enjoy working with, and what kinds of problems you like solving.',
-  availability: 'Open to interesting projects & opportunities',
+  headline: 'Building clean software, tools, and web projects.',
+  bio: 'Welcome to my personal corner of the web — a showcase of projects, experiments, and technologies I enjoy working with.',
   email: 'hello@example.com',
   githubUrl: 'https://github.com/9wolF',
 };
@@ -30,8 +29,8 @@ export const siteConfig = {
 export const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Projects', href: '#projects' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Tools', href: '#tools' },
+  { label: 'Connect', href: '#connect' },
 ];
 
 export const projects: Project[] = [

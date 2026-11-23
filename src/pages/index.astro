@@ -5,66 +5,59 @@ import { projects, siteConfig, skillGroups } from '../data/portfolio';
 ---
 
 <BaseLayout
-  title={`${siteConfig.brand} — Portfolio`}
+  title={siteConfig.brand}
   description={`${siteConfig.name} — ${siteConfig.role}. ${siteConfig.headline}`}
 >
   <!-- Hero -->
   <section class="py-20 sm:py-28">
-    <div
-      class="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700 dark:border-indigo-500/30 dark:bg-indigo-500/10 dark:text-indigo-300"
-    >
-      <span class="h-1.5 w-1.5 rounded-full bg-indigo-500 dark:bg-indigo-400"></span>
-      {siteConfig.availability}
-    </div>
+    <p class="font-mono text-xs font-medium uppercase tracking-widest text-accent">
+      {siteConfig.role}
+    </p>
 
-    <h1
-      class="mt-6 max-w-3xl text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl dark:text-slate-50"
-    >
+    <h1 class="mt-4 max-w-3xl text-4xl font-bold tracking-tight text-ink sm:text-5xl">
       Hi, I'm{' '}
-      <span
-        class="bg-gradient-to-r from-indigo-600 to-sky-500 bg-clip-text text-transparent dark:from-indigo-400 dark:to-sky-400"
-      >
-        {siteConfig.name}
-      </span>
-      .
-      <span class="mt-2 block text-slate-700 dark:text-slate-300">
+      <span class="bg-gradient-to-r from-grad-from to-grad-to bg-clip-text text-transparent">{siteConfig.name}</span>.
+      <span class="mt-2 block text-ink-muted">
         {siteConfig.headline}
       </span>
     </h1>
 
-    <p class="mt-6 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg dark:text-slate-400">
+    <p class="mt-6 max-w-2xl text-base leading-relaxed text-ink-muted sm:text-lg">
       {siteConfig.bio}
     </p>
 
     <div class="mt-8 flex flex-wrap items-center gap-4">
       <a
         href="#projects"
-        class="inline-flex items-center justify-center rounded-lg bg-slate-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-slate-800 dark:bg-indigo-500 dark:text-white dark:hover:bg-indigo-400"
+        class="inline-flex items-center justify-center rounded-lg bg-btn-primary px-5 py-2.5 text-sm font-medium text-btn-primary-text transition-colors hover:bg-btn-primary-hover"
       >
-        View Projects
+        Explore Projects
       </a>
       <a
         href={siteConfig.githubUrl}
         target="_blank"
         rel="noreferrer"
-        class="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-5 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
+        class="inline-flex items-center justify-center rounded-lg border border-border-card bg-surface px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-surface-subtle"
       >
-        GitHub Profile
+        GitHub
       </a>
     </div>
   </section>
 
   <!-- About -->
-  <section id="about" class="scroll-mt-20 border-t border-slate-200 py-16 dark:border-slate-800">
-    <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-50">About</h2>
-    <div class="mt-4 max-w-3xl space-y-4 text-slate-600 dark:text-slate-400">
+  <section id="about" class="scroll-mt-20 border-t border-border py-16">
+    <h2 class="text-2xl font-bold tracking-tight text-ink">About</h2>
+    <div class="mt-4 max-w-3xl space-y-4 text-ink-muted">
       <p class="leading-relaxed">
-        Use this section to share your background, what excites you in software engineering, and
-        what you're currently focused on learning or building.
+        I enjoy building thoughtful software, exploring new frameworks, and turning ideas into
+        clean, practical projects. This site serves as a personal space to collect and showcase
+        what I'm working on.
       </p>
       <p class="leading-relaxed">
-        All starter text, links, skills, and project cards live in{' '}
-        <code class="rounded bg-slate-200/70 px-1.5 py-0.5 font-mono text-xs text-slate-800 dark:bg-slate-800 dark:text-slate-200">
+        All starter text, links, tools, and project cards live in{' '}
+        <code
+          class="rounded border border-border-card/60 bg-surface px-1.5 py-0.5 font-mono text-xs text-ink"
+        >
           src/data/portfolio.ts
         </code>{' '}
         so you can personalize everything in one place.
@@ -73,14 +66,12 @@ import { projects, siteConfig, skillGroups } from '../data/portfolio';
   </section>
 
   <!-- Projects -->
-  <section id="projects" class="scroll-mt-20 border-t border-slate-200 py-16 dark:border-slate-800">
+  <section id="projects" class="scroll-mt-20 border-t border-border py-16">
     <div class="flex items-end justify-between gap-4">
       <div>
-        <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-50">
-          Featured Projects
-        </h2>
-        <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">
-          A selection of things I've built recently.
+        <h2 class="text-2xl font-bold tracking-tight text-ink">Projects</h2>
+        <p class="mt-2 text-sm text-ink-muted">
+          A curated collection of things I've built and explored.
         </p>
       </div>
     </div>
@@ -90,21 +81,19 @@ import { projects, siteConfig, skillGroups } from '../data/portfolio';
     </div>
   </section>
 
-  <!-- Skills -->
-  <section id="skills" class="scroll-mt-20 border-t border-slate-200 py-16 dark:border-slate-800">
-    <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-50">
-      Tech Stack
-    </h2>
+  <!-- Tools -->
+  <section id="tools" class="scroll-mt-20 border-t border-border py-16">
+    <h2 class="text-2xl font-bold tracking-tight text-ink">Tools &amp; Technologies</h2>
     <div class="mt-8 grid gap-6 sm:grid-cols-3">
       {
         skillGroups.map((group) => (
-          <div class="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900/60">
-            <h3 class="text-sm font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
+          <div class="rounded-2xl border border-border-card bg-surface p-6 shadow-xs">
+            <h3 class="text-sm font-semibold uppercase tracking-wider text-accent">
               {group.category}
             </h3>
             <ul class="mt-4 flex flex-wrap gap-2">
               {group.items.map((item) => (
-                <li class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                <li class="rounded-md bg-surface-subtle px-2.5 py-1 text-xs font-medium text-ink-muted">
                   {item}
                 </li>
               ))}
@@ -115,23 +104,27 @@ import { projects, siteConfig, skillGroups } from '../data/portfolio';
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="scroll-mt-20 border-t border-slate-200 py-16 dark:border-slate-800">
-    <div
-      class="rounded-2xl border border-slate-200 bg-white p-8 sm:p-10 dark:border-slate-800 dark:bg-slate-900/60"
-    >
-      <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-50">
-        Get in Touch
-      </h2>
-      <p class="mt-3 max-w-xl text-slate-600 dark:text-slate-400">
-        Have a question, project idea, or just want to say hello? Feel free to reach out directly.
+  <!-- Connect -->
+  <section id="connect" class="scroll-mt-20 border-t border-border py-16">
+    <div class="rounded-2xl border border-border-card bg-surface p-8 shadow-xs sm:p-10">
+      <h2 class="text-2xl font-bold tracking-tight text-ink">Say Hello</h2>
+      <p class="mt-3 max-w-xl text-ink-muted">
+        Always happy to connect, chat about software, or hear feedback on any of my projects.
       </p>
-      <div class="mt-6">
+      <div class="mt-6 flex flex-wrap items-center gap-3">
         <a
           href={`mailto:${siteConfig.email}`}
-          class="inline-flex items-center justify-center rounded-lg bg-slate-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-slate-800 dark:bg-indigo-500 dark:hover:bg-indigo-400"
+          class="inline-flex items-center justify-center rounded-lg bg-btn-primary px-5 py-2.5 text-sm font-medium text-btn-primary-text transition-colors hover:bg-btn-primary-hover"
         >
-          Send an Email
+          Email Me
+        </a>
+        <a
+          href={siteConfig.githubUrl}
+          target="_blank"
+          rel="noreferrer"
+          class="inline-flex items-center justify-center rounded-lg border border-border-card bg-surface-subtle px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-canvas/50"
+        >
+          Find me on GitHub
         </a>
       </div>
     </div>

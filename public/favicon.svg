@@ -10,14 +10,14 @@
     font-size="28"
     class="fg"
   >
-    9W
+    FN
   </text>
   <style>
-    .bg { fill: #0f172a; }
-    .fg { fill: #f8fafc; }
+    .bg { fill: #143328; }
+    .fg { fill: #aecebe; }
     @media (prefers-color-scheme: dark) {
-      .bg { fill: #f8fafc; }
-      .fg { fill: #0f172a; }
+      .bg { fill: #aecebe; }
+      .fg { fill: #0d1613; }
     }
   </style>
 </svg>
